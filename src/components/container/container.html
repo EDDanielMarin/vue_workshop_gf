@@ -1,0 +1,40 @@
+
+<section class="container">
+    <div class="p-grid p-align-center p-col-align-center">
+
+      <div class="p-col-12"  v-if="isLoading"> <ProgressSpinner /></div>
+      <div class="p-col-12" v-if='error'>
+              <Message severity="warn" key="Error">{{error}}</Message>
+      </div>
+
+      <div class="p-col-12" v-if='isLoaded'>
+      |<DataView :value="data" :layout="layout">
+          <template #header>
+            <DataViewLayoutOptions v-model="layout"></DataViewLayoutOptions>
+          </template>
+          <template #grid="slotProps">
+              <div style="padding: .5em" class="p-col-12 p-md-3">
+                  <Panel :header="slotProps.data.title" style="text-align: center">
+                      <div class="car-detail">{{slotProps.data.body}}</div>
+                      <Button icon="pi pi-search"></Button>
+                  </Panel>
+              </div>
+          </template>
+          <template #list="slotProps">
+              <div class="p-col-12">
+                  <div class="car-details">
+                      <div>
+                          <div class="p-grid">
+                              <div class="p-col-12">Tittle: <b>{{slotProps.data.title}}</b></div>
+                              <div class="p-col-12">Body: <b>{{slotProps.data.body}}</b></div>
+                          </div>
+                      </div>
+                      <Button icon="pi pi-search"></Button>
+                  </div>
+              </div>
+          </template>
+        </DataView>
+      </div>
+    </div>
+</section>
+
