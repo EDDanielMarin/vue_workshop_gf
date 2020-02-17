@@ -16,8 +16,17 @@
               <div style="padding: .5em" class="p-col-12 p-md-3">
                   <Panel :header="slotProps.data.title" style="text-align: center">
                       <div class="car-detail">{{slotProps.data.body}}</div>
+
+                      <div class="p-col-12 p-md-12">
+                        <div class="icon p-col-4 p-md-4">{{CountModel.retweets}}<i class="pi pi-share-alt" @click="increaseRetweets"></i></div>
+                        <div class="icon p-col-4 p-md-4">{{CountModel.replies}}<i class="pi pi-reply" @click="increaseReplies"></i></div>
+                        <div class="icon p-col-4 p-md-4">{{CountModel.likes}}<i class="pi pi-heart"  @click="increaseLikes"></i></div>
+    
+                     </div>
+
                       <Button icon="pi pi-search"></Button>
                   </Panel>
+                 
               </div>
           </template>
           <template #list="slotProps">

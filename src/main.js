@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
+import Context from './Context';
 
 import 'primevue/resources/themes/nova-light/theme.css';
 import 'primevue/resources/primevue.min.css';
@@ -35,5 +36,6 @@ Vue.use(axios);
 
 new Vue({
   store,
+  context: Context,
   render: h => h(App),
 }).$mount('#app')
